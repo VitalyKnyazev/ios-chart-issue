@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:chart="clr-namespace:Telerik.XamarinForms.Chart;assembly=Telerik.XamarinForms.Chart"
+             x:Class="App1.ItemDetailPage"
+             Title="{Binding Title}">
+	
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition/>
+			<RowDefinition/>
+		</Grid.RowDefinitions>
+		
+		<Label Text="Vertical axis labels not shown if series added after page constructor. Also, on Android / iOS if a series is removed dynamically and added back - it is not displayed and all series can disappear." Margin="20" TextColor="Red"/>
+
+		<chart:RadCartesianChart SelectionPaletteName="LightSelected" x:Name="chart1" Grid.Row="1">
+			<chart:RadCartesianChart.Behaviors>
+				<chart:ChartTrackBallBehavior ShowIntersectionPoints="True" ShowTrackInfo="True"/>
+				<chart:ChartPanAndZoomBehavior ZoomMode="Horizontal" PanMode="Horizontal" HandleDoubleTap="True"/>
+			</chart:RadCartesianChart.Behaviors>
+
+			<chart:RadCartesianChart.Annotations>
+				<chart:CartesianGridLineAnnotation Axis="{Binding VerticalAxis, Source={x:Reference chart1}}" Value="100" Stroke="Orange" StrokeThickness="3" />
+			</chart:RadCartesianChart.Annotations>
+
+			<chart:RadCartesianChart.HorizontalAxis>
+				<chart:DateTimeContinuousAxis LabelFitMode="Rotate" LabelFormat="dd-MMM-yy" LineColor="Crimson"/>
+			</chart:RadCartesianChart.HorizontalAxis>
+			<chart:RadCartesianChart.VerticalAxis>
+				<chart:NumericalAxis LineColor="Chartreuse" />
+			</chart:RadCartesianChart.VerticalAxis>
+		</chart:RadCartesianChart>
+
+		<chart:RadCartesianChart SelectionPaletteName="LightSelected" x:Name="chart2" Grid.Row="2">
+			<chart:RadCartesianChart.Behaviors>
+				<chart:ChartTrackBallBehavior ShowIntersectionPoints="True" ShowTrackInfo="True"/>
+				<chart:ChartPanAndZoomBehavior ZoomMode="Horizontal" PanMode="Horizontal" HandleDoubleTap="True"/>
+			</chart:RadCartesianChart.Behaviors>
+
+			<chart:RadCartesianChart.Annotations>
+				<chart:CartesianGridLineAnnotation Axis="{Binding VerticalAxis, Source={x:Reference chart2}}" Value="100" Stroke="Orange" StrokeThickness="3" />
+			</chart:RadCartesianChart.Annotations>
+
+			<chart:RadCartesianChart.HorizontalAxis>
+				<chart:DateTimeContinuousAxis LabelFitMode="Rotate" LabelFormat="dd-MMM-yy" LineColor="Crimson"/>
+			</chart:RadCartesianChart.HorizontalAxis>
+			<chart:RadCartesianChart.VerticalAxis>
+				<chart:NumericalAxis LineColor="Chartreuse" />
+			</chart:RadCartesianChart.VerticalAxis>
+		</chart:RadCartesianChart>
+	</Grid>
+	
+</ContentPage>
